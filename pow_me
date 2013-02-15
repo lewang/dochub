@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+root=`dirname $0`
+
+export PORT=19274
+
+cd $root
+
+touch web.log
+node web.js 2>&1 >> web.log &
+
+/bin/rm ~/.pow/dochub
+
+echo $PORT > ~/.pow/dochub
